@@ -8,14 +8,19 @@ namespace MvcMovie.Models{
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class Product{
         [Key]
-        public string ProductID { get; set; }
+
         [DisplayName("ID Sản Phẩm")]
-        public string ProductName { get; set; }
+        public string ProductID { get; set; }
+        
         [DisplayName("Tên Sản phẩm")]
-        public decimal UnitPrice { get; set; }
+        public string ProductName { get; set; }
+        
         [DisplayName("Đơn Giá")]
-        public string Quantily { get; set; }
+        public decimal UnitPrice { get; set; }
+        
         [DisplayName("Số Lượng")]
+        public string Quantily { get; set; }
+        
         private string GetDebuggerDisplay()
         {
             return ToString();

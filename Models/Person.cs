@@ -8,10 +8,13 @@ namespace MvcMovie.Models{
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class Person{
         [Key]
-        public string PersonID { get; set; }
+
         [DisplayName("ID Người Dùng")]
-        public string PersonName { get; set; }
+        public string PersonID { get; set; }
+        
         [DisplayName("Tên Người Dùng")]
+        public string PersonName { get; set; }
+        
         private string GetDebuggerDisplay()
         {
             return ToString();

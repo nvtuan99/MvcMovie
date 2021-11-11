@@ -11,18 +11,23 @@ namespace MvcMovie.Models
     public class Movie
     {
         [Key]
-        public int Id { get; set; }
-        [DisplayName("ID")]
-        public string Title { get; set; }
-        [DisplayName("Chủ Đề")]
 
+        [DisplayName("ID")]
+        public int Id { get; set; }
+
+        [DisplayName("Chủ Đề")]
+        public string Title { get; set; }
+        
+        [DisplayName("Ngày Phát Hành")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
-        [DisplayName("Ngày Phát Hành")]
-        public string Genre { get; set; }
+        
         [DisplayName("Thể Loại")]
-        public decimal Price { get; set; }
+        public string Genre { get; set; }
+        
         [DisplayName("Giá")]
+        public decimal Price { get; set; }
+        
         private string GetDebuggerDisplay()
         {
             return ToString();
