@@ -18,6 +18,8 @@ public class MvcMovieContext : DbContext
 
         public DbSet<MvcMovie.Models.Person> Person { get; set; }
 
+        public DbSet<MvcMovie.Models.Chel> Chels { get; set; }
+
         public DbSet<MvcMovie.Models.Employee> Employee { get; set; }
 
         public DbSet<MvcMovie.Models.Product> Product { get; set; }

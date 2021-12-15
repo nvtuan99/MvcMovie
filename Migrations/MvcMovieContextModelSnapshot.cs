@@ -39,15 +39,22 @@ namespace MvcMovie.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("Rating")
+                        .HasMaxLength(5)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .HasMaxLength(60)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -60,12 +67,18 @@ namespace MvcMovie.Migrations
                     b.Property<string>("PersonID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PersonName")
                         .HasColumnType("TEXT");
 
                     b.HasKey("PersonID");
 
-                    b.ToTable("Persons");
+                    b.ToTable("People");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Person");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Product", b =>
@@ -100,7 +113,25 @@ namespace MvcMovie.Migrations
 
                     b.HasKey("StudentID");
 
-                    b.ToTable("Students");
+                    b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.Chel", b =>
+                {
+                    b.HasBaseType("MvcMovie.Models.Person");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StudentCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("University")
+                        .HasColumnType("TEXT");
+
+                    b.ToTable("People");
+
+                    b.HasDiscriminator().HasValue("Chel");
                 });
 #pragma warning restore 612, 618
         }
